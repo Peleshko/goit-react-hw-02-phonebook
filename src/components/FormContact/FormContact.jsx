@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import s from './FormContact.module.css';
 
 class FormContact extends Component {
-  state = {
-    name: '',
-    namber: '',
-  };
-
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+  };
+
+  state = {
+    name: '',
+    number: '',
   };
 
   handleChange = e => {
@@ -21,15 +21,15 @@ class FormContact extends Component {
     const { name, number } = this.state;
     e.preventDefault();
     this.props.onSubmit(name, number);
-    this.reset();
+    this.resetState();
   };
 
-  reset() {
+  resetState = () => {
     this.setState({
       name: '',
       number: '',
     });
-  }
+  };
 
   render() {
     return (
